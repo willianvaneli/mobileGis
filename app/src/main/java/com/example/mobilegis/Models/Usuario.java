@@ -2,7 +2,7 @@ package com.example.mobilegis.Models;
 
 import java.io.Serializable;
 
-public class Usuario {
+public class Usuario implements Serializable{
     private int id;
     private String nome;
     private String login;

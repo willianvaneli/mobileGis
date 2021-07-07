@@ -8,7 +8,7 @@ public final class Constantes {
 
     public static final String ADMIN_NOME = "Super Admin";
     public static final String ADMIN_LOGIN = "admin";
-    public static final String ADMIN_SENHA = "2019";
+    public static final String ADMIN_SENHA = "super";
     public static final String VERSAO_APP = "1.00";
 
     public static final int SRID = 31984;

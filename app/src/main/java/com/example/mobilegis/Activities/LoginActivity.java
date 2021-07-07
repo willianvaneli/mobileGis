@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 
 import com.example.mobilegis.APLs.AplAcesso;
+import com.example.mobilegis.APLs.AplDiretorios;
 import com.example.mobilegis.APLs.AplSincronizaUsuarios;
 import com.example.mobilegis.DAOs.UsuarioDAO;
 import com.example.mobilegis.MainActivity;
@@ -28,6 +29,9 @@ import com.example.mobilegis.R;
 import com.example.mobilegis.Utils.Retorno;
 import com.example.mobilegis.Utils.TipoRetorno;
 
+import static com.example.mobilegis.Config.Constantes.ADMIN_LOGIN;
+import static com.example.mobilegis.Config.Constantes.ADMIN_NOME;
+import static com.example.mobilegis.Config.Constantes.ADMIN_SENHA;
 import static com.example.mobilegis.Config.Constantes.VERSAO_APP;
 
 
@@ -58,7 +62,8 @@ public class LoginActivity extends AppCompatActivity {
 
         //Preenche último usuário logado
         preencheUsuario();
-
+        permissoes();
+        AplDiretorios.criaDiretorios();
 
         textVersion.setText("Versão "+ VERSAO_APP);
 
@@ -92,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
         int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
             ActivityCompat.requestPermissions(
                     this,
                     PERMISSIONS_STORAGE,
@@ -100,37 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             );
         }
 
-//        if (BuildConfig.DEBUG) {
-//            logaDebug();
-//        }
-    }
 
-    private void logaDebug(){
-        try{
-            AplAcesso apl = new AplAcesso();
-//            Retorno r = apl.criaEmpresa();
-
-
-            String login = "admin";
-            String senha = "1234";
-
-            if(login != null && senha != null){
-                Retorno retorno = apl.tentaLogarHash(login, senha);
-                if(retorno.getTipo() == TipoRetorno.SUCESSO){
-                    exibeToast("Logado com sucesso!");
-                    redirecionaHome((Usuario) retorno.getDados());
-                }
-                else{
-                    exibeToast("Não foi possível logar!");
-                }
-            }
-            else {
-                exibeToast("Você precisa preencher o usuario e senha!");
-            }
-        }
-        catch(Exception ex){
-            exibeToast(ex.getMessage());
-        }
     }
 
 
@@ -142,6 +116,13 @@ public class LoginActivity extends AppCompatActivity {
 
             String login = txtUsername.getText().toString();
             String senha = txtPassword.getText().toString();
+
+            if(login == ADMIN_LOGIN && senha == ADMIN_SENHA){
+                Usuario usuario = new Usuario();
+                usuario.setId(0);
+                usuario.setNome(ADMIN_NOME);
+                redirecionaHome(usuario);
+            }
 
             if(login != null && senha != null){
                 Retorno retorno = apl.tentaLogarHash(login, senha);
@@ -181,7 +162,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void redirecionaHome(Usuario usuario){
-        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MapaActivity.class);
         intent.putExtra("usuario", usuario);
         startActivity(intent);
     }
@@ -233,7 +214,25 @@ public class LoginActivity extends AppCompatActivity {
         click = true;
         progressBarSincro.setVisibility(View.GONE);
     }
+    public void permissoes(){
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},0);
+        }
+        if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE)){
 
+            }else{
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2);
+            }
+        }
+        if(ActivityCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+
+            }else{
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},2);
+            }
+        }
+    }
 
     @Override
     protected void onRestart() {
