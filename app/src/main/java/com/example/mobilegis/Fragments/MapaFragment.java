@@ -918,7 +918,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
                     incluiAlteracao();
                     geoPoints.add(index, marker.getPosition());
                     atualizaMapa();
-                    //desenhaPoligonoComLinhas();
                     if (!pintar) {
                         alteraEstadoPintura();
                     }
@@ -928,8 +927,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
 
                 @Override
                 public void onMarkerDragStart(Marker marker) {
-//                    marker.setIcon(getResources().getDrawable(R.drawable.ponto_azul24));
-//                    marker.setIcon(ResourcesCompat.getDrawable(getResources(),R.drawable.ponto_azul24,null));
                     marker.setIcon(ContextCompat.getDrawable(context, R.drawable.ponto_azul12));
                 }
             });
@@ -949,8 +946,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
                             (poligono.getPoints().get(i).getLongitude() + poligono.getPoints().get(i + 1).getLongitude()) / 2);
                     Marker marker = new Marker(map);
                     marker.setPosition(geoPoint);
-//                    marker.setIcon(this.getResources().getDrawable(R.drawable.ponto_preto24));
-//                    marker.setIcon(ResourcesCompat.getDrawable(getResources(),R.drawable.ponto_preto24,map.getContext().getTheme()));
                     marker.setIcon(ContextCompat.getDrawable(context, R.drawable.ponto_preto12));
                     marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
 
@@ -1521,8 +1516,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
         limpar = view.findViewById(R.id.limpar);
         undo = view.findViewById(R.id.undo);
         location = view.findViewById(R.id.location);
-        remembrar = view.findViewById(R.id.remembrar);
-        desmembrar = view.findViewById(R.id.desmembrar);
         save.hide();
         limpar.hide();
         undo.hide();
@@ -1601,53 +1594,8 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
             }
         });
 
-        remembrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(multiselecao){
-                    if(lstSelecionados.size()>1){
-                        remembrar();
-                    }else{
-                        limpaLstSelecionados();
-                        limparSelecao();
-                        map.invalidate();
-                    }
-                    remembrar.setColorFilter(Color.parseColor("#FFFFFF"));
-                    multiselecao = false;
-                }else{
-                    limparSelecao();
-                    remembrar.setColorFilter(Color.parseColor("#FFFFB300"));
-                    multiselecao = true;
-                }
-            }
-        });
 
-        desmembrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                if(desmembramento){
-                    if(poligonoAtual!=null) {
-                        desmembrar();
-
-                    }
-                    linePoints.clear();
-                    map.getOverlays().remove(evDesmembrar);
-                    map.getOverlayManager().removeAll(overlaysDesmembrar);
-                    overlaysDesmembrar.clear();
-                    map.invalidate();
-                    desmembramento = false;
-                }else{
-                    desmembramento = true;
-                    linePoints.clear();
-                    map.getOverlays().add(evDesmembrar);
-                    map.invalidate();
-                }
-                InfoWindow.closeAllInfoWindowsOn(map);
-//                    comunicator.desmembrar(poligonoAtual.getJTSPolygon(),Integer.parseInt(poligonoAtual.getId()));
-
-            }
-        });
 
     }
 

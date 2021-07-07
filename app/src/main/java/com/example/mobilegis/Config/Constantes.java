@@ -48,12 +48,6 @@ public final class Constantes {
             + "atualizacao text, "
             + "inscricao_imobiliaria text, "
             + "face_quadra_id_principal integer, "
-//            + "cobranca_iptu text, "
-//            + "logradouro_id integer, "
-//            + "nome_logradouro text, "
-//            + "numero text, "
-//            + "bairro text, "
-//            + "cep text, "
             + "area_terreno_medida real, "
             + "area_terreno_tributario real, "
             + "comprimento_testada real, "
@@ -70,15 +64,6 @@ public final class Constantes {
             + "area_risco integer, "
             + "registro_imovel text, "
             + "possui_calcada integer, "
-            //+ "coleta_lixo integer, "
-            //+ "transporte_coletivo integer, "
-            //+ "via_pavimentada integer, "
-            //+ "abastecimento_dagua integer, "
-            //+ "iluminacao_publica integer, "
-            //+ "esgoto_sanitario integer, "
-            //+ "rede_eletrica integer, "
-            //+ "rede_telefonica integer, "
-            //+ "sarjeta integer, "
             + "pedologia text, "
             + "quadra text, "
             + "lote text, "
@@ -87,7 +72,7 @@ public final class Constantes {
 
 
     public static final String SQL_CREATE_GEOMETRIA_TERRENOS = "SELECT AddGeometryColumn('" + NOME_TABELA_TERRENOS + "', 'geom', " + SRID + ", 'POLYGON', 'XY',1);";
-    //public static final String SQL_CREATE_GEOMETRIA_EMPRESA = "SELECT AddGeometryColumn('" + NOME_TABELA_EMPRESAS + "', 'localizacao', 31982, 'POINT', 'XY');";
+
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,9 +85,6 @@ public final class Constantes {
             " (id int primary key , "
             + "terreno_id integer, "
             + "area_construida real, "
-//            + "vertical integer, "
-//            + "alinhamento text, "
-//            + "caracteristica text, "
             + "quant_pavimentos integer, "
             + "quant_unidades integer, "
             + "elevador text, "

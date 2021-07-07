@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.mobilegis.Fragments.MapaFragment;
+import com.example.mobilegis.Models.Camada;
 import com.example.mobilegis.Models.ComunicacaoMapa;
+import com.example.mobilegis.Models.Poligono;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
