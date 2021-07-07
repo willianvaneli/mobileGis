@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.MapaFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end|bottom">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#0D47A1"
+            android:clickable="true"
+            android:contextClickable="true"
+            android:focusable="true"
+            app:backgroundTint="#0D47A1"
+            app:rippleColor="#FFFFFF"
+            app:srcCompat="@drawable/edit_24dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/limpar"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#43A047"
+            android:clickable="true"
+            android:contextClickable="true"
+            android:focusable="true"
+            app:backgroundTint="#43A047"
+            app:fabSize="mini"
+            app:rippleColor="#FFFFFF"
+            app:srcCompat="@drawable/check_24dp" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/limpar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/fab"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:backgroundTint="#E53935"
+            android:contextClickable="true"
+            app:backgroundTint="#E53935"
+            app:fabSize="mini"
+            app:rippleColor="#FCFFFFFF"
+            app:srcCompat="@android:drawable/ic_delete" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/undo"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/save"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#039BE5"
+            android:clickable="true"
+            android:contextClickable="true"
+            android:focusable="true"
+            app:backgroundTint="#039BE5"
+            app:fabSize="mini"
+            app:rippleColor="#FFFFFF"
+            app:srcCompat="@drawable/undo_24dp" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#0D47A1"
+            android:src="@drawable/gps_fixed_white_48dp"
+            android:tint="#FFFFFF"
+            app:backgroundTint="#0D47A1"
+            app:fabSize="mini"
+            app:rippleColor="#FFFFFF" />
+
+
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <org.osmdroid.views.MapView
+                android:id="@+id/map"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                app:layout_anchor="@+id/map"
+                app:layout_anchorGravity="center">
+
+            </org.osmdroid.views.MapView>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </RelativeLayout>
+</FrameLayout>
+

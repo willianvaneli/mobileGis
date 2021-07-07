@@ -32,7 +32,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.mobilegis.Models.Camada;
 import com.example.mobilegis.Models.ComunicacaoMapa;
+import com.example.mobilegis.Models.Poligono;
 import com.example.mobilegis.R;
+import com.example.mobilegis.Utils.DialogMenssage;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;

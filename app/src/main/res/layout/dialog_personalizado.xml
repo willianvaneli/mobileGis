@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/image_dialog_personalizado"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#b3414b"
+        android:gravity="center"
+        android:padding="8dp"
+        android:src="@drawable/layers_clear_48dp" />
+
+    <TextView
+        android:id="@+id/text_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="42dp"
+        android:gravity="center"
+        android:text="TEXT"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp" />
+
+    <RadioGroup
+        android:id="@+id/radio_dialog_personalizado"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_weight="1"
+            android:background="#293249"
+            android:text="Sim"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_weight="1"
+            android:background="#293249"
+            android:text="Não"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</LinearLayout>
