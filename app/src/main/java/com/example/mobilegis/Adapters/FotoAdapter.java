@@ -47,12 +47,10 @@ public class FotoAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if((fotos.size() > 0) && (fotos != null)) {
             ImageView imageView = new ImageView(context);
-//            FotoDAO fotoDAO = new FotoDAO();
             try {
                 int targetW = 160;
                 int targetH = 160;
 
-//                Foto foto = (Foto) fotoDAO.buscar((long)fotos.get(position).getId());
                 BitmapFactory.Options bmOptions = new BitmapFactory.Options();
                 bmOptions.inJustDecodeBounds= true;
                 BitmapFactory.decodeFile(fotos.get(position).getFoto(), bmOptions);

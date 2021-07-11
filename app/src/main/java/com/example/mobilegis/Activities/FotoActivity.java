@@ -11,6 +11,7 @@ import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.mobilegis.Adapters.FotoAdapter;
 import com.example.mobilegis.DAOs.FotoDAO;
 import com.example.mobilegis.Models.Foto;
 import com.example.mobilegis.R;
