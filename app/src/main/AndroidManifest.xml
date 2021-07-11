@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileGIS">
         <activity
+            android:name=".Activities.FotoActivity"
+            android:label="@string/title_activity_foto"
+            android:theme="@style/Theme.MobileGIS.NoActionBar"></activity>
+        <activity
             android:name=".Activities.CadastroLotesActivity"
             android:label="@string/title_activity_cadastro_lotes"
-            android:theme="@style/Theme.MobileGIS.NoActionBar"></activity>
+            android:theme="@style/Theme.MobileGIS.NoActionBar" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
