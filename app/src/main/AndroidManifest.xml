@@ -10,9 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileGIS">
         <activity
+            android:name=".Activities.CadastroLotesActivity"
+            android:label="@string/title_activity_cadastro_lotes"
+            android:theme="@style/Theme.MobileGIS.NoActionBar"></activity>
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <activity
             android:name=".Activities.MapaActivity"
             android:label="@string/title_activity_mapa"
-            android:theme="@style/Theme.MobileGIS.NoActionBar"></activity>
+            android:theme="@style/Theme.MobileGIS.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +36,10 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -39,13 +51,18 @@
         </provider>
 
         <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" />
+        <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
     </application>
+    <uses-feature android:name="android.hardware.type.watch" />
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

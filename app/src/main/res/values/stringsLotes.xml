@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cobranca_iptu">Cobrança IPTU</string>
+    <string name="codigo_n_face_quadra">Cod Face \nde Quadra</string>
+    <string name="inscricao">Inscrição</string>
+    <string name="iptu">IPTU</string>
+    <string name="numero_iptu">número IPTU</string>
+    <string name="numero_inscricao">número da inscrição</string>
+    <string name="codigo">código</string>
+    <string name="bairro">Bairro</string>
+    <string name="bairro_min">bairro</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="logradouro_min">logradouro</string>
+    <string name="cod_logradouro">Cod Logradouro</string>
+    <string name="numero">Número</string>
+    <string name="numero_min">número</string>
+    <string name="cep">CEP</string>
+    <string name="area_terreno">Área Terreno</string>
+    <string name="area_terreno_min">área terreno</string>
+    <string name="area_tributario">Área Tributário</string>
+    <string name="area_tributario_min">área tributário</string>
+    <string name="comp_n_testada">Comp da\nTestada</string>
+    <string name="comp_testada_min">comp da testada</string>
+    <string name="comp_testada_n_tributario">Comp da Testada\nTributário</string>
+    <string name="comp_testada_tributario_min">testada tributário</string>
+    <string name="qt_edificacao">Qt Edificação</string>
+    <string name="area_construida">Área Construida</string>
+    <string name="situacao_lote">Situação</string>
+    <string name="delimitacao">Delimitação</string>
+    <string name="topografia">Topografia</string>
+    <string name="classificacao_n_risco">Classificação\nde Risco</string>
+    <string name="classificacao_risco_min">classificação risco</string>
+    <string name="ocupacao_lote">Ocupação Lote</string>
+    <string name="categoria_n_propriedade">Categoria\nPropriedade</string>
+
+    <string name="inscricao_n_anterior">Inscrição\nAnterior</string>
+    <string name="registro_imovel">Registro do Imóvel</string>
+    <string name="coleta_lixo">Coleta de Lixo</string>
+    <string name="limpeza_publica">Limpeza Pública</string>
+    <string name="transporte_publico">Transporte Público</string>
+    <string name="via_pavimentada">Via Pavimentada</string>
+    <string name="abastecimento_agua">Abastecimento de Água</string>
+    <string name="iluminacao_publica">Iluminação Pública</string>
+    <string name="esgoto_sanitario">Esgoto Sanitário   </string>
+    <string name="area_risco_esp">Área de risco   </string>
+    <string name="forma_regular_esp">Forma Regular   </string>
+    <string name="possui_calcada_esp">Possui Calçada   </string>
+
+
+    <string-array name="spinner_atualizacao_texto">
+        <item></item>
+        <item>Sem alteracao</item>
+        <item>Inclusão</item>
+        <item>Alteração</item>
+        <item>Exclusão</item>
+    </string-array>
+
+    <string-array name="spinner_atualizacao_valor">
+        <item></item>
+        <item>sem_alteracao</item>
+        <item>inclusao</item>
+        <item>alteracao</item>
+        <item>exclusao</item>
+    </string-array>
+
+    <string-array name="spinner_situacao_lote_texto">
+        <item></item>
+        <item>Esquina</item>
+        <item>Encravado</item>
+        <item>Meio da quadra</item>
+        <item>Mais de uma frente</item>
+        <item>Gleba</item>
+    </string-array>
+
+    <string-array name="spinner_situacao_lote_valor">
+        <item></item>
+        <item>esquina</item>
+        <item>encravado</item>
+        <item>meio_de_quadra</item>
+        <item>mais_de_uma_frente</item>
+        <item>gleba</item>
+    </string-array>
+
+    <string-array name="spinner_delimitacao_texto">
+        <item></item>
+        <item>Nenhuma</item>
+        <item>Muro</item>
+        <item>Calçada</item>
+        <item>Muro com Calçada</item>
+        <item>Cerca</item>
+    </string-array>
+
+    <string-array name="spinner_delimitacao_valor">
+        <item></item>
+        <item>nenhuma</item>
+        <item>muro</item>
+        <item>calcada</item>
+        <item>muro_com_calcada</item>
+        <item>cerca</item>
+    </string-array>
+
+    <string-array name="spinner_topografia_texto">
+        <item></item>
+        <item>Normal</item>
+        <item>Aclive</item>
+        <item>Declive</item>
+        <item>Irregular</item>
+        <item>Morro</item>
+        <item>Parte Morro</item>
+    </string-array>
+
+    <string-array name="spinner_topografia_valor">
+        <item></item>
+        <item>normal</item>
+        <item>aclive</item>
+        <item>declive</item>
+        <item>irregular</item>
+        <item>morro</item>
+        <item>parte_morro</item>
+    </string-array>
+
+    <string-array name="spinner_ocupacao_lote_texto">
+        <item></item>
+        <item>Baldio</item>
+        <item>Parque</item>
+        <item>Praça</item>
+        <item>Agropecuária</item>
+        <item>Edificado</item>
+        <item>Em construção</item>
+        <item>Em demolição</item>
+        <item>Ruína</item>
+    </string-array>
+
+    <string-array name="spinner_ocupacao_lote_valor">
+        <item></item>
+        <item>baldio</item>
+        <item>parque</item>
+        <item>praca</item>
+        <item>agropecuaria</item>
+        <item>edificado</item>
+        <item>em_construcao</item>
+        <item>em_demolicao</item>
+        <item>ruina</item>
+    </string-array>
+
+    <string-array name="spinner_categoria_propriedade_texto">
+        <item></item>
+        <item>Particular</item>
+        <item>Municipal</item>
+        <item>Estadual</item>
+        <item>Federal</item>
+        <item>Religioso</item>
+        <item>Associação</item>
+    </string-array>
+
+    <string-array name="spinner_categoria_propriedade_valor">
+        <item></item>
+        <item>particular</item>
+        <item>municipal</item>
+        <item>estadual</item>
+        <item>federal</item>
+        <item>religioso</item>
+        <item>associacao</item>
+    </string-array>
+
+    <string-array name="spinner_pedologia_texto">
+        <item></item>
+        <item>Seco</item>
+        <item>Brejoso / Pantanoso</item>
+        <item>Alagado</item>
+    </string-array>
+
+    <string-array name="spinner_pedologia_valor">
+        <item></item>
+        <item>seco</item>
+        <item>brejoso_pantanoso</item>
+        <item>alagado</item>
+    </string-array>
+
+
+</resources>

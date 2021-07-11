@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Activities.CadastroLotesActivity">
+
+    <item
+        android:id="@+id/action_salvar_cad_lote"
+        android:icon="@drawable/ic_action_save"
+        android:title="Salvar"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_foto_cad_lote"
+        android:icon="@drawable/baseline_photo_camera_white_48dp"
+        android:title="Fotos"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_visitas_cad_lote"
+        android:icon="@drawable/event_note_menu_white_48dp"
+        android:title="Visitas"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_excluir_cad_lote"
+        android:icon="@drawable/baseline_delete_forever_white_48dp"
+        android:title="Excluir"
+        app:showAsAction="ifRoom" />
+
+</menu>

@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Activities.CadastroLotesActivity"
+    tools:showIn="@layout/activity_cadastro_lotes">
+
+    <fragment
+        android:id="@+id/fragment_mapa_cad_lote"
+        android:name="com.example.mobilegis.Fragments.MapaFragment"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_mapa_cad_lote"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1A237E"
+                android:text="Cadastro de Lotes"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/text_area_terreno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Area"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/edit_area_terreno"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_area_terreno"
+                app:layout_constraintStart_toEndOf="@+id/text_area_terreno"
+                app:layout_constraintTop_toTopOf="@+id/text_area_terreno" />
+
+            <TextView
+                android:id="@+id/text_comp_testada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Comprimento testada"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_area_terreno" />
+
+            <EditText
+                android:id="@+id/edit_comprimento_testada"
+                style="@style/StyledTilEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/text_comp_testada"
+                app:layout_constraintEnd_toEndOf="@+id/edit_area_terreno"
+                app:layout_constraintStart_toEndOf="@+id/text_comp_testada"
+                app:layout_constraintTop_toTopOf="@+id/text_comp_testada" />
+
+
+            <TextView
+                android:id="@+id/text_qt_edificacoes_lote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Quantidade de edificações"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_comp_testada" />
+
+            <TextView
+                android:id="@+id/edit_qt_edificacao"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_qt_edificacoes_lote"
+                app:layout_constraintEnd_toEndOf="@+id/edit_comprimento_testada"
+                app:layout_constraintStart_toEndOf="@+id/text_qt_edificacoes_lote"
+                app:layout_constraintTop_toTopOf="@+id/text_qt_edificacoes_lote" />
+
+            <TextView
+                android:id="@+id/text_area_construida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/area_construida"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/edit_area_terreno"
+                app:layout_constraintStart_toEndOf="@+id/edit_area_terreno"
+                app:layout_constraintTop_toTopOf="@+id/edit_area_terreno" />
+
+            <EditText
+                android:id="@+id/edit_area_construida"
+                style="@style/StyledTilEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/text_area_construida"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/text_area_construida"
+                app:layout_constraintTop_toTopOf="@+id/text_area_construida" />
+
+            <TextView
+                android:id="@+id/text_situacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/situacao_lote"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_qt_edificacoes_lote" />
+
+            <Spinner
+                android:id="@+id/spinner_situacao_lote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_situacao"
+                app:layout_constraintEnd_toEndOf="@+id/edit_qt_edificacao"
+                app:layout_constraintStart_toEndOf="@+id/text_situacao"
+                app:layout_constraintTop_toTopOf="@+id/text_situacao" />
+
+            <TextView
+                android:id="@+id/text_delimitacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/delimitacao"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_situacao" />
+
+            <Spinner
+                android:id="@+id/spinner_delimitacao"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_delimitacao"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_situacao_lote"
+                app:layout_constraintStart_toEndOf="@+id/text_delimitacao"
+                app:layout_constraintTop_toTopOf="@+id/text_delimitacao" />
+
+            <Spinner
+                android:id="@+id/spinner_topografia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_topografia"
+                app:layout_constraintEnd_toEndOf="@+id/edit_area_construida"
+                app:layout_constraintStart_toEndOf="@+id/text_topografia"
+                app:layout_constraintTop_toTopOf="@+id/text_topografia" />
+
+            <TextView
+                android:id="@+id/text_topografia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/topografia"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/text_qt_edificacoes_lote"
+                app:layout_constraintStart_toStartOf="@+id/text_area_construida"
+                app:layout_constraintTop_toTopOf="@+id/text_qt_edificacoes_lote" />
+
+            <TextView
+                android:id="@+id/text_classificacao_risco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/classificacao_n_risco"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_delimitacao" />
+
+            <EditText
+                android:id="@+id/edit_classificacao_risco"
+                style="@style/StyledTilEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/text_classificacao_risco"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_delimitacao"
+                app:layout_constraintStart_toEndOf="@+id/text_classificacao_risco"
+                app:layout_constraintTop_toTopOf="@+id/text_classificacao_risco" />
+
+            <Switch
+                android:id="@+id/switch_area_risco"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/area_risco_esp"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintBottom_toBottomOf="@+id/text_situacao"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/text_topografia"
+                app:layout_constraintTop_toTopOf="@+id/text_situacao" />
+
+            <TextView
+                android:id="@+id/text_ocupacao_lote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/ocupacao_lote"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_classificacao_risco" />
+
+            <Spinner
+                android:id="@+id/spinner_ocupacao_lote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_ocupacao_lote"
+                app:layout_constraintEnd_toEndOf="@+id/edit_classificacao_risco"
+                app:layout_constraintStart_toEndOf="@+id/text_ocupacao_lote"
+                app:layout_constraintTop_toTopOf="@+id/text_ocupacao_lote" />
+
+            <TextView
+                android:id="@+id/text_categoria_propriedade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_n_propriedade"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/text_delimitacao"
+                app:layout_constraintStart_toStartOf="@+id/switch_area_risco"
+                app:layout_constraintTop_toTopOf="@+id/text_delimitacao" />
+
+            <Spinner
+                android:id="@+id/spinner_categoria_propriedade"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_categoria_propriedade"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/text_categoria_propriedade"
+                app:layout_constraintTop_toTopOf="@+id/text_categoria_propriedade" />
+
+            <TextView
+                android:id="@+id/text_registro_imovel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registro_imovel"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/text_ocupacao_lote"
+                app:layout_constraintStart_toStartOf="@+id/switch_calcada"
+                app:layout_constraintTop_toTopOf="@+id/text_ocupacao_lote" />
+
+            <EditText
+                android:id="@+id/edit_registro_imovel"
+                style="@style/StyledTilEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/text_registro_imovel"
+                app:layout_constraintStart_toEndOf="@+id/text_registro_imovel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/text_registro_imovel" />
+
+            <Switch
+                android:id="@+id/switch_calcada"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/possui_calcada_esp"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintBottom_toBottomOf="@+id/text_classificacao_risco"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/switch_area_risco"
+                app:layout_constraintTop_toTopOf="@+id/text_classificacao_risco" />
+
+            <Switch
+                android:id="@+id/switch_coleta_lixo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/coleta_lixo"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_ocupacao_lote"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_ocupacao_lote"
+                app:layout_constraintTop_toBottomOf="@+id/switch_rede_telefonica" />
+
+            <Switch
+                android:id="@+id/switch_transporte_publico"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/transporte_publico"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintEnd_toEndOf="@+id/switch_coleta_lixo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switch_coleta_lixo" />
+
+            <Switch
+                android:id="@+id/switch_via_pavimentada"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/via_pavimentada"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintBottom_toBottomOf="@+id/switch_coleta_lixo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/switch_calcada"
+                app:layout_constraintTop_toTopOf="@+id/switch_coleta_lixo" />
+
+            <Switch
+                android:id="@+id/switch_abastecimento_agua"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/abastecimento_agua"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintEnd_toEndOf="@+id/switch_transporte_publico"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switch_transporte_publico" />
+
+            <Switch
+                android:id="@+id/switch_iluminacao_publica"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/iluminacao_publica"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintBottom_toBottomOf="@+id/switch_transporte_publico"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/text_registro_imovel"
+                app:layout_constraintTop_toTopOf="@+id/switch_transporte_publico" />
+
+            <Switch
+                android:id="@+id/switch_esgoto_sanitario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/esgoto_sanitario"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintBottom_toBottomOf="@+id/switch_rede_telefonica"
+                app:layout_constraintEnd_toEndOf="@+id/edit_registro_imovel"
+                app:layout_constraintStart_toStartOf="@+id/text_registro_imovel"
+                app:layout_constraintTop_toTopOf="@+id/switch_rede_telefonica" />
+
+            <TextView
+                android:id="@+id/textPedologia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Pedologia"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/edit_comprimento_testada"
+                app:layout_constraintStart_toStartOf="@+id/text_area_construida"
+                app:layout_constraintTop_toTopOf="@+id/edit_comprimento_testada" />
+
+            <Spinner
+                android:id="@+id/spinner_pedologia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textPedologia"
+                app:layout_constraintEnd_toEndOf="@+id/switch_iluminacao_publica"
+                app:layout_constraintStart_toEndOf="@+id/textPedologia"
+                app:layout_constraintTop_toTopOf="@+id/textPedologia" />
+
+            <Switch
+                android:id="@+id/switch_rede_eletrica"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:text="Rede Elétrica"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintBottom_toBottomOf="@+id/switch_abastecimento_agua"
+                app:layout_constraintEnd_toEndOf="@+id/switch_iluminacao_publica"
+                app:layout_constraintStart_toStartOf="@+id/switch_iluminacao_publica"
+                app:layout_constraintTop_toTopOf="@+id/switch_abastecimento_agua" />
+
+            <Switch
+                android:id="@+id/switch_rede_telefonica"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Rede Telefônica"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:theme="@style/SwitchTheme"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_ocupacao_lote"
+                app:layout_constraintStart_toStartOf="@+id/text_ocupacao_lote"
+                app:layout_constraintTop_toBottomOf="@+id/text_ocupacao_lote" />
+
+
+            <TextView
+                android:id="@+id/textQuadra"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Quadra"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switch_abastecimento_agua" />
+
+            <EditText
+                android:id="@+id/edit_quadra"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/textQuadra"
+                app:layout_constraintEnd_toEndOf="@+id/switch_abastecimento_agua"
+                app:layout_constraintStart_toEndOf="@+id/textQuadra"
+                app:layout_constraintTop_toTopOf="@+id/textQuadra" />
+
+            <TextView
+                android:id="@+id/textLote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lote"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textQuadra"
+                app:layout_constraintStart_toStartOf="@+id/switch_calcada"
+                app:layout_constraintTop_toTopOf="@+id/textQuadra" />
+
+            <EditText
+                android:id="@+id/edit_lote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/textLote"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_pedologia"
+                app:layout_constraintStart_toEndOf="@+id/textLote"
+                app:layout_constraintTop_toTopOf="@+id/textLote" />
+
+            <TextView
+                android:id="@+id/text_obs_cadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Observação Cadastro"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textQuadra" />
+
+            <TextView
+                android:id="@+id/textObsCadastroValor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_obs_cadastro" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
