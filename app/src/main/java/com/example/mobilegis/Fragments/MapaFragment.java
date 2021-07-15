@@ -110,16 +110,8 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
     List<Overlay> overlaysEdicao;
     private boolean mapCad = false;
 
-    //Desmembrar
     private List<GeoPoint> linePoints;
-    FloatingActionButton desmembrar;
-    List<Overlay> overlaysDesmembrar;
-    private boolean desmembramento;
-    private MapEventsOverlay evDesmembrar;
-    private Camada camadaDesmembrar;
 
-    //Remembrar
-    private FloatingActionButton remembrar;
     private List<Poligono> lstSelecionados;
     private boolean multiselecao;
 
@@ -391,7 +383,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
 
 
         overlaysEdicao = new ArrayList<Overlay>();
-        overlaysDesmembrar = new ArrayList<Overlay>();
 
         map = (MapView) view.findViewById(R.id.map);
 
@@ -400,8 +391,8 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
         map.setMaxZoomLevel(22.0);
         map.setMinZoomLevel(12.0);
         IMapController mapController = map.getController();
-        mapController.setZoom(12.5);
-        GeoPoint startPoint = new GeoPoint(-20.2215, -40.3078);
+        mapController.setZoom(13.0);
+        GeoPoint startPoint = new GeoPoint(-20.1600, -40.2500);
         mapController.setCenter(startPoint);
 
         //Escala na tela.
@@ -436,7 +427,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
                 return true;
             }
         };
-        evDesmembrar = new MapEventsOverlay(mDes);
 
 
         // Recebe os eventos do mapa, escuta.
@@ -581,9 +571,10 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
         if (f.exists()) {
             List<File> files = new ArrayList<>();
             File[] list = f.listFiles();
-            Arrays.sort(list);
+
 
             if (list != null) {
+                Arrays.sort(list);
                 for (int i = 0; i < list.length; i++) {
                     if (list[i].isDirectory()) {
                         continue;
@@ -776,8 +767,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
     }
 
     public void atualizaMapaLinha() {
-        map.getOverlayManager().removeAll(overlaysDesmembrar);
-        overlaysDesmembrar.clear();
         //Remove as info windowns abertas
         InfoWindow.closeAllInfoWindowsOn(map);
         //Remove os desenhos referentes ao poligono em edição
@@ -785,7 +774,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
         if (linePoints.size() > 0) {
             desenhaLinha();
         }
-        map.getOverlayManager().addAll(overlaysDesmembrar);
     }
 
     public void atualizarSemOverlay() {
@@ -1103,8 +1091,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
     public void desenhaLinha() {
         Polyline line = new Polyline();
         line.setPoints(linePoints);
-        overlaysDesmembrar.add(line);
-        map.getOverlayManager().addAll(overlaysDesmembrar);
         for (GeoPoint i : linePoints) {
             addMarkerLinha(i);
         }
@@ -1235,8 +1221,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
                 linePoints.remove(index);
             }
         });
-        overlaysDesmembrar.add(marker);
-        map.getOverlayManager().addAll(overlaysDesmembrar);
     }
 
     private synchronized void callConnection() {
@@ -1424,8 +1408,6 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
         fab.setVisibility(View.INVISIBLE);
         save.setVisibility(View.INVISIBLE);
         location.setVisibility(View.INVISIBLE);
-        remembrar.setVisibility(View.INVISIBLE);
-        desmembrar.setVisibility(View.INVISIBLE);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.addRule(ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
         params.setMargins(16, 0, 0, 16);
@@ -1436,22 +1418,9 @@ public class MapaFragment  extends Fragment implements GoogleApiClient.Connectio
         this.mapCad = true;
     }
 
-    public void setRemembrar(boolean bol){
-        if(bol){
-            remembrar.setVisibility(View.VISIBLE);
-        }else{
-            remembrar.setVisibility(View.INVISIBLE);
-        }
-    }
 
-    public void setDesmembrar(boolean bol){
-        if(bol){
-            desmembrar.setVisibility(View.VISIBLE);
-        }else{
-            desmembrar.setVisibility(View.INVISIBLE);
-        }
 
-    }
+
 
     private void atualizaLocationAtual(double lat, double lon) {
         locationAtual.setPosition(new GeoPoint(lat, lon));

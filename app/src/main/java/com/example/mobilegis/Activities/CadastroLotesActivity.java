@@ -82,7 +82,6 @@ public class CadastroLotesActivity extends AppCompatActivity implements Comunica
             Intent i = getIntent();
             lote.setGeom((Polygon) i.getSerializableExtra("poligono"));
             lote.setId((int) i.getSerializableExtra("id"));
-            osId = (int) i.getSerializableExtra("osId");
 
 
             if ( lote.getId() > 0 ){
@@ -159,7 +158,7 @@ public class CadastroLotesActivity extends AppCompatActivity implements Comunica
         }
 
         if(lote.getObsCadastro() != null){
-            ((TextView)findViewById(R.id.textObsCadastroValor)).setText(lote.getObsCadastro()+ "\n\n\n");
+            ((TextView)findViewById(R.id.edit_observacao)).setText(lote.getObsCadastro()+ "\n\n\n");
         }
     }
 
@@ -463,6 +462,12 @@ public class CadastroLotesActivity extends AppCompatActivity implements Comunica
             else
                 lote.setLote(null);
 
+            valor = ((EditText)findViewById(R.id.edit_observacao)).getText().toString();
+            if(!valor.equals(""))
+                lote.setQuadra(valor);
+            else
+                lote.setQuadra(null);
+
             LoteDAO loteDAO = new LoteDAO();
 
             try {
@@ -471,6 +476,8 @@ public class CadastroLotesActivity extends AppCompatActivity implements Comunica
                     lote.setId(loteDAO.getMaiorId() + 1);
 
                     loteDAO.inserir(lote);
+                    getIntent().putExtra("id",lote.getId());
+                    recreate();
                 }else{
                     loteDAO.editar(lote);
                 }

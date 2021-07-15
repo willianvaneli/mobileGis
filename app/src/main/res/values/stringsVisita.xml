@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="cadastrador">Cadastrador</string>
+    <string name="data_cadastro">Data do Cadastro</string>
+    <string name="hora_cadastro">Hora do Cadastro</string>
+    <string name="qt_visitas">Qt Visitas</string>
+    <string name="situacao">Situação</string>
+    <string name="observacao">Observação</string>
+
+
+    <string-array name="spinner_tipo_contribuinte">
+        <item></item>
+        <item>Pessoa Fisica</item>
+        <item>Pessoa Juridica</item>
+    </string-array>
+
+    <string-array name="spinner_situacao_texto">
+        <item></item>
+        <item>Conseguiu efetuar a vistoria sem problemas</item>
+        <item>O imóvel estava fechado, impossibilitando a vistoria</item>
+        <item>Aparentemente desocupado ou abandonado</item>
+        <item>O responsável não permitiu a vistoria</item>
+    </string-array>
+
+    <string-array name="spinner_situacao_valor">
+        <item></item>
+        <item>conseguiu_efetuar_a_vistoria_sem_problemas</item>
+        <item>o_imovel_estava_fechado_impossibilitando_a_vistoria</item>
+        <item>aparentemente_desocupado_ou_abandonado</item>
+        <item>o_responsavel_nao_permitiu_a_vistoria</item>
+    </string-array>
+
+
+
+</resources>

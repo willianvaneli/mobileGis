@@ -18,4 +18,7 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_cadastro_lotes">CadastroLotesActivity</string>
     <string name="title_activity_foto">FotoActivity</string>
+    <string name="title_activity_lista_visitas">ListaVisitasActivity</string>
+    <string name="title_activity_cadastro_visita">CadastroVisitaActivity</string>
+    <string name="visita">Visita</string>
 </resources>

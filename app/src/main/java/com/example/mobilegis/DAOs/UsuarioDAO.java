@@ -106,6 +106,29 @@ public class UsuarioDAO implements IDAO<Usuario>{
         }
     }
 
+    public Usuario buscarPorLogin(String login) throws Exception {
+
+        SQLiteDatabase db = sqliteHelper.getReadableDatabase();
+
+        Cursor cursor = db.query(NOME_TABELA_USUARIOS, null, "login = ?", new String[]{login}, null, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            Usuario usuario = new Usuario();
+            usuario.setId(cursor.getInt(cursor.getColumnIndex("id")));
+            usuario.setNome(cursor.getString(cursor.getColumnIndex("nome")));
+            usuario.setLogin(cursor.getString(cursor.getColumnIndex("login")));
+            usuario.setSenha(cursor.getString(cursor.getColumnIndex("senha")));
+            usuario.setAtivo(cursor.getInt(cursor.getColumnIndex("ativo")) == 1);
+
+            db.close();
+            return usuario;
+        }
+        else {
+            db.close();
+            return null;
+        }
+    }
+
     @Override
     public List<Usuario> buscarTodos() {
 

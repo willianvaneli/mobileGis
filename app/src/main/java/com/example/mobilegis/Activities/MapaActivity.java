@@ -3,21 +3,26 @@ package com.example.mobilegis.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.mobilegis.DAOs.LoteDAO;
+import com.example.mobilegis.DAOs.VisitaDAO;
 import com.example.mobilegis.Fragments.MapaFragment;
 import com.example.mobilegis.Models.Camada;
 import com.example.mobilegis.Models.ComunicacaoMapa;
+import com.example.mobilegis.Models.Lote;
 import com.example.mobilegis.Models.Poligono;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.example.mobilegis.R;
 
+import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.Polygon;
 
 import java.util.List;
@@ -36,7 +41,13 @@ public class MapaActivity extends AppCompatActivity implements ComunicacaoMapa {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        progressBar = (ProgressBar)findViewById(R.id.progressBarMapaOs);
+        FragmentManager manager = getSupportFragmentManager();
+        mapa = (MapaFragment) manager.findFragmentById(R.id.fragment_mapa);
+        mapa.setComunicator(this);
+        mapa.setCalcEnvelope(false);
+        mapa.setInfoWindow(true);
+
+        progressBar = (ProgressBar)findViewById(R.id.progressBarMapa);
         progressBar.setVisibility(View.GONE);
 
         Camada camadaNovo = new Camada();
@@ -47,7 +58,7 @@ public class MapaActivity extends AppCompatActivity implements ComunicacaoMapa {
         camadaPendente.setColor(255,255,0);
         LoteDAO loteDAO = new LoteDAO();
         try {
-            List<Lote> lotes = loteDAO.buscarPorOrdemServicoMapa(SRID_MAPA,4326);
+            List<Lote> lotes = loteDAO.buscarTodosGeom(4326);
             for (int i = 0 ; i < lotes.size() ; i++){
                 Poligono poligono = new Poligono(lotes.get(i).getGeom(),lotes.get(i).getId());
                 poligono.setTitle("Deseja ir para o cadastro do terreno?   ");
@@ -85,12 +96,21 @@ public class MapaActivity extends AppCompatActivity implements ComunicacaoMapa {
         Intent intent = new Intent(this, CadastroLotesActivity.class);
         intent.putExtra("poligono",poligono);
         intent.putExtra("id",id);
-        intent.putExtra("osId",osId);
-//        mapa.getMap().getTileProvider().clearTileCache();
         startActivity(intent);
         this.onPause();
 
     }
+
+    @Override
+    public void remembrar(List<Integer> ids) {
+
+    }
+
+    @Override
+    public void desmembrar(Geometry geoms, int id) {
+
+    }
+
     @Override
     protected void onRestart() {
         super.onRestart();

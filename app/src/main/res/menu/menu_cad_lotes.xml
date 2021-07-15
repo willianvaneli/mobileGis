@@ -18,7 +18,7 @@
 
     <item
         android:id="@+id/action_visitas_cad_lote"
-        android:icon="@drawable/event_note_menu_white_48dp"
+        android:icon="@drawable/outline_event_white_36dp"
         android:title="Visitas"
         app:showAsAction="ifRoom" />
 

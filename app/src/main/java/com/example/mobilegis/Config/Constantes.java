@@ -3,8 +3,8 @@ package com.example.mobilegis.Config;
 public final class Constantes {
     private Constantes(){}
 
-    public static final String NOME_BANCO = "db_cadastro";
-    public static final int VERSAO_BANCO = 1;
+    public static final String NOME_BANCO = "db_mobilegis";
+    public static final int VERSAO_BANCO = 3;
 
     public static final String ADMIN_NOME = "Super Admin";
     public static final String ADMIN_LOGIN = "admin";
@@ -64,6 +64,15 @@ public final class Constantes {
             + "area_risco integer, "
             + "registro_imovel text, "
             + "possui_calcada integer, "
+            + "coleta_lixo integer, "
+            + "transporte_coletivo integer, "
+            + "via_pavimentada integer, "
+            + "abastecimento_dagua integer, "
+            + "iluminacao_publica integer, "
+            + "esgoto_sanitario integer, "
+            + "rede_eletrica integer, "
+            + "rede_telefonica integer, "
+            + "sarjeta integer, "
             + "pedologia text, "
             + "quadra text, "
             + "lote text, "

@@ -36,7 +36,7 @@ import static com.example.mobilegis.Config.Constantes.VERSAO_APP;
 
 
 public class LoginActivity extends AppCompatActivity {
-
+    public static Usuario usuarioAtual;
     private EditText txtUsername;
     private EditText txtPassword;
     private Button btnLogar;
@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        permissoes();
 
         progressBarSincro = findViewById(R.id.progressBarSincro);
 
@@ -62,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //Preenche último usuário logado
         preencheUsuario();
-        permissoes();
+        redirecionaHome(usuarioAtual);
         AplDiretorios.criaDiretorios();
 
         textVersion.setText("Versão "+ VERSAO_APP);
@@ -89,20 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        final int REQUEST_EXTERNAL_STORAGE = 1;
-        String[] PERMISSIONS_STORAGE = {
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-        };
-        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-        if (permission != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                    this,
-                    PERMISSIONS_STORAGE,
-                    REQUEST_EXTERNAL_STORAGE
-            );
-        }
 
 
     }
@@ -117,14 +105,12 @@ public class LoginActivity extends AppCompatActivity {
             String login = txtUsername.getText().toString();
             String senha = txtPassword.getText().toString();
 
-            if(login == ADMIN_LOGIN && senha == ADMIN_SENHA){
+            if(login.equals(ADMIN_LOGIN)  && senha.equals(ADMIN_SENHA)){
                 Usuario usuario = new Usuario();
                 usuario.setId(0);
                 usuario.setNome(ADMIN_NOME);
                 redirecionaHome(usuario);
-            }
-
-            if(login != null && senha != null){
+            }else if(login != null && senha != null){
                 Retorno retorno = apl.tentaLogarHash(login, senha);
                 if(retorno.getTipo() == TipoRetorno.SUCESSO){
                     exibeToast("Logado com sucesso!");
@@ -134,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                     }else{
                         usuarioDAO.atualizarUltimoUsuario(login);
                     }
+                    this.usuarioAtual = usuarioDAO.buscarPorLogin(login);
                     redirecionaHome((Usuario) retorno.getDados());
                 }
                 else{
@@ -162,6 +149,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void redirecionaHome(Usuario usuario){
+
         Intent intent = new Intent(getApplicationContext(), MapaActivity.class);
         intent.putExtra("usuario", usuario);
         startActivity(intent);
@@ -215,6 +203,21 @@ public class LoginActivity extends AppCompatActivity {
         progressBarSincro.setVisibility(View.GONE);
     }
     public void permissoes(){
+        final int REQUEST_EXTERNAL_STORAGE = 1;
+        String[] PERMISSIONS_STORAGE = {
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        };
+        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},0);
         }
@@ -239,5 +242,6 @@ public class LoginActivity extends AppCompatActivity {
         habilitaClick();
         super.onRestart();
     }
+
 
 }

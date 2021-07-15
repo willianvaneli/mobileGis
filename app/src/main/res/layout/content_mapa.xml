@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_mapa">
 
     <fragment
-        android:id="@+id/fragment_mapa_os"
+        android:id="@+id/fragment_mapa"
         android:name="com.example.mobilegis.Fragments.MapaFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/progressBarMapaOs"
+        android:id="@+id/progressBarMapa"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_salvar_visita"
+        android:icon="@drawable/ic_action_save"
+        android:title="SALVAR"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_sair_visita"
+        android:icon="@drawable/action_sair"
+        android:title="Sair"
+        app:showAsAction="ifRoom" />
+
+</menu>

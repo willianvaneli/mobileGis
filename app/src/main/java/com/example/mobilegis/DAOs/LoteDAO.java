@@ -29,7 +29,7 @@ public class LoteDAO implements IDAO<Lote> {
 
             String sql = "INSERT INTO terrenos "
                     +"(id, atualizacao, inscricao_imobiliaria, face_quadra_id_principal, area_terreno_medida, area_terreno_tributario, comprimento_testada, comprimento_testada_tributario, quant_edificacao, area_construida_lote, forma_regular, situacao, delimitacao, topografia, classificacao_risco, ocupacao_lote, categoria_propriedade, area_risco, registro_imovel, possui_calcada, coleta_lixo, transporte_coletivo, via_pavimentada, abastecimento_dagua, iluminacao_publica, esgoto_sanitario, rede_eletrica, rede_telefonica, pedologia,quadra,lote,obs_cadastro, geom) "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,@GEOMETRIA);";
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,@GEOMETRIA);";
 
             lista.add(Objects.toString(lote.getId()));
             if(lote.getId() > 899999999 ){
@@ -147,7 +147,7 @@ public class LoteDAO implements IDAO<Lote> {
 
         String sql = "UPDATE terrenos "
                 +"SET (atualizacao, inscricao_imobiliaria, face_quadra_id_principal, area_terreno_medida, area_terreno_tributario, comprimento_testada, comprimento_testada_tributario, quant_edificacao, area_construida_lote, forma_regular, situacao, delimitacao, topografia, classificacao_risco, ocupacao_lote, categoria_propriedade, area_risco, registro_imovel, possui_calcada, coleta_lixo, transporte_coletivo, via_pavimentada, abastecimento_dagua, iluminacao_publica, esgoto_sanitario, rede_eletrica, rede_telefonica, pedologia,quadra,lote, obs_cadastro, geom) "
-                + "= (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,@GEOMETRIA) "
+                + "= (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,@GEOMETRIA) "
                 + "WHERE id = " + lote.getId() + " ;";
 
         if(lote.getId() > 899999999 ){
